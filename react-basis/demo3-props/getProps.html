@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得组件属性</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+
+<body>
+<div id="example"></div>
+</body>
+
+<script type="text/babel">
+    //设置组件,注意组件的规则
+
+    //用createClass()方法创建,后来是通过继承来创建,例如创建一个加数组件AddNumber;
+    // 并通过this.props来获得组件属性
+
+    let AddNumber = React.createClass({
+        render: function () {
+            return <button> + {this.props.name}</button>
+        }
+    });
+
+    ReactDOM.render(
+        <AddNumber name = "加法"/>,
+        document.getElementById("example")
+    )
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的所有子节点</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+
+<script type="text/babel">
+    let NodeList = React.createClass({
+        render: function () {
+            return(
+                <ul>
+                    {
+                        React.Children.map(this.props.children,function (child) {
+                            return <li>{child}</li>;
+                        })
+                    }
+                </ul>
+            );
+        }
+    });
+    ReactDOM.render(
+        <NodeList>
+            <span>Hello</span>
+            <span>Hi</span>
+        </NodeList>,
+        document.getElementById('example')
+    );
+
+    /*
+   <div>
+        <ul>
+        <li><span></span></li>
+         <li><span></span></li>
+        </ul>
+   </div>
+    */
+</script>
+</html>

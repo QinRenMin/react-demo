@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的属性</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+<script type="text/babel">
+    //react用PropTypes检查组建的规范,这些组件支持哪些prop和每个prop应该是怎样的格式
+    // 在开发时发现代码的问题,产品环境中不需要,用babel-react-optimize去掉
+
+    let MyValues = React.createClass({
+        PropTypes: {
+            value : React.PropTypes.num.isRequired
+        },
+
+        render : function () {
+            return <h1>{this.props.value}</h1>
+        }
+    });
+
+    let value = "123";
+
+    ReactDOM.render(
+        <MyValues value = {value}>
+
+        </MyValues>,
+        document.getElementById("example")
+    );
+</script>
+</html>
